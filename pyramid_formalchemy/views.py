@@ -385,7 +385,6 @@ class ModelView(object):
         #    # non SA forms
         #    fs = fs.bind(self.context.get_model(), data=data, session=self.session,
         #                 request=request, with_prefix=with_prefix)
-
         if self.validate(fs):
             fs.sync()
             self.sync(fs)
