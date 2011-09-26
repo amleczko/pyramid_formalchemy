@@ -78,7 +78,7 @@ class Base(object):
             del matchdict['traverse']
         if kwargs:
             matchdict['_query'] = kwargs
-        return self.request.route_url(self.__fa_route_name__,
+        return self.request.route_url(self.request.route_name,
                                       traverse=tuple([str(a) for a in args]),
                                       **matchdict)
 
