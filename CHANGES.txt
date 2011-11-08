@@ -1,7 +1,7 @@
 0.4.3 (unreleased)
 ------------------
 
-- dev changes go here
+- fix __acl__ check on instances instead of classes [amleczko]
 
 0.4.2 (2011-11-03)
 ------------------
