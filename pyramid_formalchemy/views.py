@@ -353,7 +353,7 @@ class ModelView(object):
         fs = fs.bind(session=self.session, request=self.request)
 
         event = events.BeforeRenderEvent(fs.model, self.request, fs=fs)
-        alsoProvides(event, events.IBeforeEditRenderEvent)
+        alsoProvides(event, events.IBeforeNewRenderEvent)
         zope.component.event.objectEventNotify(event)
 
         return self.render(fs=fs, id=None)

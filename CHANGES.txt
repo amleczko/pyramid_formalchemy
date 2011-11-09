@@ -1,7 +1,7 @@
 0.4.3 (unreleased)
 ------------------
 
-- fix __acl__ check on instances instead of classes [amleczko]
+-  add BeforeNewRender event [amleczko]
 
 0.4.2 (2011-11-03)
 ------------------

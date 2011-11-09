@@ -41,6 +41,9 @@ class IBeforeShowRenderEvent(IBeforeRenderEvent):
 class IBeforeEditRenderEvent(IBeforeRenderEvent):
     """Edit will be rendered"""
 
+class IBeforeNewRenderEvent(IBeforeEditRenderEvent):
+    """New form will be rendered"""
+
 
 class BeforeValidateEvent(zope.component.interfaces.ObjectEvent):
     """A model will be validated"""
