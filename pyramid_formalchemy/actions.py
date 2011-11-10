@@ -301,9 +301,7 @@ class RequestActions(dict):
 
     def __getattr__(self, attr):
         actions = self.get(attr, Actions())
-        if actions:
-            return actions.render
-        return None
+        return actions.render
 
 class Languages(Actions):
     """Languages actions::

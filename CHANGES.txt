@@ -1,7 +1,8 @@
 0.4.3 (unreleased)
 ------------------
 
--  add BeforeNewRender event [amleczko]
+- add BeforeNewRender event [amleczko]
+- fix RequestAction to always return renderer method [amleczko]
 
 0.4.2 (2011-11-03)
 ------------------
