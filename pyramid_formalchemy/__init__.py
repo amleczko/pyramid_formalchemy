@@ -35,7 +35,8 @@ def formalchemy_model_view(config, route_name,
     model = config.maybe_dotted(model)
     context = config.maybe_dotted(context)
     mixin_name = '%sCustom%s_%s_%s_%s' % (model.__name__, context.__name__,
-                                          route_name, name, kwargs.get('request_method','GET'))
+                                          route_name, name,
+                                          kwargs.get('request_method','GET'))
 
     factory = type(mixin_name, (context,), {})
     config.registry.pyramid_formalchemy_views[factory.__name__] = factory
