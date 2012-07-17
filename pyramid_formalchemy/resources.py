@@ -49,6 +49,7 @@ class Base(object):
                     themes = themes.split()
                 request.actions['themes'] = actions.Themes(*themes)
 
+
     def get_model(self):
         request = self.request
         if request.model_class:
@@ -169,4 +170,8 @@ class Model(Base):
         if request.model_instance is None:
             raise NotFound(request.path)
         request.model_id = name
+
+        if request.model_instance and hasattr(request.model_instance, '__acl__'):
+            self.__acl__ = request.model_instance.__acl__
+
 
