@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from pyramid.exceptions import NotFound
 from pyramid_formalchemy import actions
-from sqlalchemy import exceptions as sqlalchemy_exceptions
+from sqlalchemy import exc as sqlalchemy_exceptions
 import logging
 
 log = logging.getLogger(__name__)
@@ -71,7 +71,11 @@ class Base(object):
     def get_instance(self):
         model = self.get_model()
         session = self.request.session_factory()
-        return session.query(model).get(self.request.model_id)
+        try:
+            return session.query(model).get(self.request.model_id)
+        except sqlalchemy_exceptions.InvalidRequestError:
+            # pyramid 1.4 compat
+            return session.query(model.context).get(self.request.model_id)
 
     def _fa_url(self, *args, **kwargs):
         matchdict = self.request.matchdict.copy()
